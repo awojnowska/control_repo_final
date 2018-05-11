@@ -40,6 +40,10 @@ class nginxformasses (
   } else {
     notify { 'Negative Nancy': }
     include chocolatey
+
+    package { 'nginx':
+      provider => 'chocolatey',
+    }
   } 
 
 
