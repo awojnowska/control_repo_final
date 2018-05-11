@@ -26,6 +26,7 @@ class nginxformasses (
       owner   => 'www-data',
       group   => 'www-data',
       mode    => '0755',
+      recurse => true,
       require => Package['nginx'],
     }
   } else {
