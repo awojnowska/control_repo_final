@@ -21,6 +21,13 @@ class nginxformasses (
       ensure  => running,
       require => Package['nginx'],
     }
+    
+    file { $docroot:
+      owner   => 'www-data',
+      group   => 'www-data',
+      mode    => '0755',
+      require => Package['nginx'],
+    }
   } else {
     notify { 'Negative Nancy': }
   } 
