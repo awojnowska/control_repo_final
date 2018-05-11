@@ -31,20 +31,26 @@ class nginxformasses (
     }
   
     file { "${docroot}/index.html":
-      owner  => 'www-data',
-      group  => 'www-data',
-      mode   => '0755',
-      source => "puppet:///modules/${module_name}/index.html",
+      owner   => 'www-data',
+      group   => 'www-data',
+      mode    => '0755',
+      source  => "puppet:///modules/${module_name}/index.html",
       require => File["${docroot}"],
     }
   } else {
     notify { 'Negative Nancy': }
     include chocolatey
+    $nginxconf = 'C:\\ProgramData\\chocolatey\\lib\\nginx\\tools\\nginx-1.12.2\\conf\\nginx.conf'
 
     package { 'nginx':
       provider => 'chocolatey',
     }
+
+    file{ $nginxconf:
+      owner   => 'Administrators',
+      group   => 'Users',
+      mode    => '0755',
+      require => Package['nginx'],
+    }
   } 
-
-
 }
