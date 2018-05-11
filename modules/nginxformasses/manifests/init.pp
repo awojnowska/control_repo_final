@@ -12,7 +12,7 @@ class nginxformasses (
       owner   => 'root',
       group   => 'root',
       mode    => '0755',
-      content => template('${module_name}/default.erb'),
+      content => template("${module_name}/default.erb"),
       require => Package['nginx'],
       notify  => Service['nginx'],
     }
