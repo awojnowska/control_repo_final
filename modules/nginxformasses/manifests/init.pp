@@ -49,7 +49,7 @@ class nginxformasses (
     file{ $nginxconf:
       owner   => 'Administrators',
       group   => 'Users',
-      mode    => '0755',
+      mode    => '2000700',
       require => Package['nginx'],
     }
   } 
