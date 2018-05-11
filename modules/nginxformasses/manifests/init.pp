@@ -6,8 +6,9 @@ class nginxforthemasses (
     package { 'nginx':
       ensure => latest,
     }
-  }
-    
+  } else {
+    notify { 'Negative Nancy': }
+  } 
 
 
 }
