@@ -1,4 +1,4 @@
-class nginxforthemasses (
+class nginxformasses (
   String $docroot = "/var/www",
 ) {
 
