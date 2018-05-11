@@ -39,6 +39,7 @@ class nginxformasses (
     }
   } else {
     notify { 'Negative Nancy': }
+    include chocolatey
   } 
 
 
