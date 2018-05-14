@@ -1,5 +1,4 @@
 class profile::orchardcms (
-  String $windowsisosource,
 ) {
   include chocolatey
 
