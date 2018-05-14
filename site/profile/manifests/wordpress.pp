@@ -16,7 +16,7 @@ package { '::mysql::server':
   ensure => present,
 }
 
-service {'mysql':
+service { 'mysql':
   ensure  => 'running',
   enable  => true,
   require => Package['mysql'],
