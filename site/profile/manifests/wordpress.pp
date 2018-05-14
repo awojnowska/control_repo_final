@@ -19,7 +19,7 @@ package { '::mysql::server':
 service { 'mysql':
   ensure  => 'running',
   enable  => true,
-  require => Package['mysql'],
+  require => Package['::mysql::server'],
 }
 
 # package { 'wordpress':
