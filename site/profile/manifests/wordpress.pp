@@ -1,6 +1,7 @@
 #
 class profile::wordpress{
 
+include '::mysql::server'
 
 package { 'apache2':
   ensure  => present,
@@ -13,7 +14,9 @@ service { 'apache2':
 }
 
 package { '::mysql::server':
-  ensure => present,
+  ensure                  => present,
+  root_password           => 'Bruckhaus12$$',
+  remove_default_accounts => true,
 }
 
 service { '::mysql::server':
