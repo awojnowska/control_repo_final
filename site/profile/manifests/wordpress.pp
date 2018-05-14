@@ -1,6 +1,8 @@
 #
 class profile::wordpress{
 
+include '::mysql::server'
+
 package { 'apache2':
   ensure  => present,
 }
