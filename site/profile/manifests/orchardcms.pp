@@ -36,13 +36,6 @@ class profile::orchardcms (
     notify     => Reboot['reboot_mymatters_iis'],
   }
 
-  dsc_windowsfeature { 'Application-server':
-    dsc_ensure => 'present',
-    dsc_name   => 'AS-NET-Framework',
-    require    => Dsc_windowsfeature['IIS'],
-    notify     => Reboot['reboot_mymatters_iis'],
-  }
-
   dsc_windowsfeature { 'Storage Services':
     dsc_ensure => 'present',
     dsc_name   => 'Storage-Services',
@@ -230,7 +223,7 @@ class profile::orchardcms (
   
   archive { 'OrchardCMS':
     path          => "C:\\Windows\\Temp\\orchard.zip",
-    source        => 'https://github-production-release-asset-2e65be.s3.amazonaws.com/33889464/c54c936c-2b43-11e7-912b-f0ea7a8433fd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20180514%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180514T141219Z&X-Amz-Expires=300&X-Amz-Signature=8a910cf2749691092de8529d31563ed49dafef4fe3f154f179c9e63bf17c0f64&X-Amz-SignedHeaders=host&actor_id=1743782&response-content-disposition=attachment%3B%20filename%3DOrchard.Web.1.10.2.zip&response-content-type=application%2Foctet-stream',
+    source        => 'https://github.com/OrchardCMS/Orchard/releases/download/1.10.2/Orchard.Web.1.10.2.zip',
     extract       => true,
     extract_path  => 'c:\\inetpub\\wwwroot',
     creates       => "${install_path}/bin",
