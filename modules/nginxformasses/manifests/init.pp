@@ -61,6 +61,11 @@ class nginxformasses (
       dsc_name   => 'Web-Scripting-Tools',
       notify     => Reboot['LightDavesHair'],
     }
+    
+    dsc_windowsfeature {'Web-Mgmt-Console':
+      dsc_ensure => 'present',
+      dsc_name   => 'Web-Mgmt-Console',
+    }
 
     reboot { 'LightDavesHair':
       apply => finished,
