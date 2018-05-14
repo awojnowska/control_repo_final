@@ -1,7 +1,6 @@
 #
 class profile::wordpress{
 
-include '::mysql::server'
 
 package { 'apache2':
   ensure  => present,
@@ -13,7 +12,7 @@ service { 'apache2':
   require  => Package['apache2'],
 }
 
-package { 'mysql':
+package { '::mysql::server':
   ensure => present,
 }
 
