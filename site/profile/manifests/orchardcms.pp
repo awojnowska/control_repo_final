@@ -351,7 +351,6 @@ class profile::orchardcms (
     loglocaltimerollover => 'false',
     logpath              => 'C:\inetpub\logs\LogFiles',
     logperiod            => 'Daily',
-    physicalpath         => 'C:\inetpub\wwwroot',
     preloadenabled       => 'false',
   }
 
