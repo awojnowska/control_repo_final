@@ -1,7 +1,9 @@
 #
 class profile::wordpress{
 
-class { 'apache': }
+package { 'apache':
+  ensure  => 'latest',
+}
 
 
 }
