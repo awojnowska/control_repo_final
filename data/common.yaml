@@ -1,2 +1,4 @@
 ---
 message: "This node is using common data"
+
+mysql::server::root_password: Bruckhause12$$

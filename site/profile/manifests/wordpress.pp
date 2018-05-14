@@ -15,7 +15,7 @@ service { 'apache2':
 
 package { '::mysql::server':
   ensure                  => present,
-  root_password           => 'Bruckhaus12$$',
+  root_password           => 'Bruckhause12$$',
   remove_default_accounts => true,
 }
 
