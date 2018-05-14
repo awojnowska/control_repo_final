@@ -40,17 +40,14 @@ class nginxformasses (
   } else {
     notify { 'Negative Nancy': }
     include chocolatey
-    $nginxconf = 'C:\\ProgramData\\chocolatey\\lib\\nginx\\tools\\nginx-1.12.2\\conf\\nginx.conf'
 
-    package { 'nginx':
+    package { 'powershell':
       provider => 'chocolatey',
+      notify   => Reboot['Reboot-PowerShell'],
     }
-
-    file{ $nginxconf:
-      owner   => 'Administrators',
-      group   => 'Users',
-      mode    => '0755',
-      require => Package['nginx'],
-    }
+    
+    reboot { 'Reboot-PowerShell':
+      apply => finished,
+    }      
   } 
 }
